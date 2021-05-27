@@ -42,10 +42,10 @@ static void print_memory(const void *addr, const size_t len)
     }
 }
 //mock fun()
-// void fun()
-// {
-//     printf("+++++++++++++++mock\n");
-// }
+void fun()
+{
+    printf("+++++++++++++++mock\n");
+}
 // extern "C" int LLVMFuzzerInitialize(int *argc, char ***argv)
 // {
 //     printf("LLVMFuzzerInitialize argc:%d\n", *argc);
