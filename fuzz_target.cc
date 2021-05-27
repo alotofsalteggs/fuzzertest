@@ -46,6 +46,8 @@ void fun()
 {
     printf("+++++++++++++++mock\n");
     printf("+++++++++++++++branch1 add\n");
+    printf("+++++++++++++++branch2 add\n");
+
 }
 // extern "C" int LLVMFuzzerInitialize(int *argc, char ***argv)
 // {
