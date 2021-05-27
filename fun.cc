@@ -9,6 +9,11 @@ void fun()
 {
     printf("-----------------orignin\n");
 }
+int new_net_connect(const char *host, const char *port)
+{
+    printf("%s %s\n",host,port);
+    return 0;
+}
 void DoSomeThingInterestingWithMyAPI(const uint8_t *Data, size_t Size)
 {
     char buf[64] = {0};
@@ -20,6 +25,7 @@ void DoSomeThingInterestingWithMyAPI(const uint8_t *Data, size_t Size)
     if (Size > 128)
     {
         fun();
+        printf("%d\n",new_net_connect("baidu.com","443"));
     }
     if(Size > 63)
      Size = 63;

@@ -44,7 +44,12 @@ static void print_memory(const void *addr, const size_t len)
 //mock fun()
 void fun()
 {
-    printf("+++++++++++++++mock\n");
+    printf("++++++++++++++++mock\n");
+}
+
+int new_net_connect(const char *host, const char *port)
+{
+    return 4;
 }
 // extern "C" int LLVMFuzzerInitialize(int *argc, char ***argv)
 // {
@@ -56,10 +61,15 @@ void fun()
 //     printf("\n\n\n");
 //     return 0;
 // }
+
+void fun2()
+{
+    return;
+}
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)
 {
     printf("## LLVMFuzzerTestOneInput start\n");
-    print_memory(Data,Size);
+    // print_memory(Data,Size);
        
     // printf("\nSize: %d\n\n",Size);
     // printf("");
