@@ -45,6 +45,7 @@ static void print_memory(const void *addr, const size_t len)
 void fun()
 {
     printf("+++++++++++++++mock\n");
+    printf("+++++++++++++++branch2 add\n");
 }
 // extern "C" int LLVMFuzzerInitialize(int *argc, char ***argv)
 // {
