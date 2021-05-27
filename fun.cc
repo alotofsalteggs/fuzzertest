@@ -21,8 +21,8 @@ void DoSomeThingInterestingWithMyAPI(const uint8_t *Data, size_t Size)
     {
         fun();
     }
-    // if(Size > 63)
-    //  Size = 63;
+    if(Size > 63)
+     Size = 63;
 
     
     // if (strstr((const char*)Data,"HTTP/1.1 200"))
