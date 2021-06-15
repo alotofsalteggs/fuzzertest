@@ -45,7 +45,7 @@ static void print_memory(const void *addr, const size_t len)
 void fun()
 {
     printf("++++++++++++++++mock\n");
-    printf("master add code\n");
+    printf("branch1 add code");
 }
 
 int new_net_connect(const char *host, const char *port)
