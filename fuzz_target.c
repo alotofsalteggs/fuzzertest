@@ -65,7 +65,6 @@ int new_net_connect(const char *host, const char *port)
 
 void fun2()
 {
-    printf("master add code\n");
     return;
 }
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)
