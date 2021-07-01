@@ -36,3 +36,5 @@ jobs:
           mkdir build && cd build
           cmake .. && make
           ./fuzzer_target_cov ../corpus/*
+          llvm-profdata merge -sparse *.profraw -o default.profdata && llvm-cov show ./fuzzer_target_cov -instr-profile=default.profdata -name=LLVMFuzzerTestOneInput
+          llvm-cov report ./fuzzer_target_cov -instr-profile=default.profdata
