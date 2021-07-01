@@ -37,4 +37,10 @@ jobs:
           cmake .. && make
           ./fuzzer_target_cov ../corpus/*
           llvm-profdata merge -sparse *.profraw -o default.profdata && llvm-cov show ./fuzzer_target_cov -instr-profile=default.profdata -name=LLVMFuzzerTestOneInput
-          llvm-cov report ./fuzzer_target_cov -instr-profile=default.profdata
+          llvm-cov report ./fuzzer_target_cov -instr-profile=default.profdata > output.log
+          
+      - name: Upload output file
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-log-file
+          path: output.log
