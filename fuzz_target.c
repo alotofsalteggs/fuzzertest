@@ -73,7 +73,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)
     // print_memory(Data,Size);
        
     // printf("\nSize: %d\n\n",Size);
-    printf("");
+//     printf("");
     DoSomeThingInterestingWithMyAPI(Data, Size);
     printf("##LLVMFuzzerTestOneInput complete\n\n");
     return 0;
