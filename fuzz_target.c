@@ -67,7 +67,7 @@ void fun2()
 {
     return;
 }
-extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)
+int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)
 {
     printf("## LLVMFuzzerTestOneInput start\n");
     // print_memory(Data,Size);

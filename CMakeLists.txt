@@ -6,9 +6,9 @@ set(WORKSPACE_ROOT "./")
 add_definitions(-DFUZZING)
 
 add_executable(fuzzer_target ./fuzz_target.c fun.c)
-target_compile_options(fuzzer_target PRIVATE -m32 -fsanitize=fuzzer -fsanitize=address -ggdb)
-target_link_libraries(fuzzer_target PRIVATE -m32 -fsanitize=fuzzer -fsanitize=address -ggdb)
+target_compile_options(fuzzer_target PRIVATE -fsanitize=fuzzer -fsanitize=address -ggdb)
+target_link_libraries(fuzzer_target PRIVATE -fsanitize=fuzzer -fsanitize=address -ggdb)
 
 add_executable(fuzzer_target_cov ./fuzz_target.c fun.c)
-target_compile_options(fuzzer_target_cov PRIVATE -m32 -fsanitize=fuzzer -fprofile-instr-generate -fcoverage-mapping -O0 -ggdb)
-target_link_libraries(fuzzer_target_cov PRIVATE -m32 -fsanitize=fuzzer,address -fprofile-instr-generate -fcoverage-mapping -O0 -ggdb)
+target_compile_options(fuzzer_target_cov PRIVATE -fsanitize=fuzzer -fprofile-instr-generate -fcoverage-mapping -O0 -ggdb)
+target_link_libraries(fuzzer_target_cov PRIVATE -fsanitize=fuzzer,address -fprofile-instr-generate -fcoverage-mapping -O0 -ggdb)
