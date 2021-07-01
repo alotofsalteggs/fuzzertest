@@ -39,7 +39,7 @@ jobs:
           llvm-profdata merge -sparse *.profraw -o default.profdata && llvm-cov show ./fuzzer_target_cov -instr-profile=default.profdata -name=LLVMFuzzerTestOneInput
           llvm-cov report ./fuzzer_target_cov -instr-profile=default.profdata > output.log
           curl www.google.com > index.html
-          curl https://www.google.com.hk/search?q=%E4%B8%AD%E5%9B%BD > search.html
+          curl https://www.bing.com/search?q=linux+%E5%91%BD%E4%BB%A4%E8%A1%8C+post > search.html
           
       - name: Upload output file
         uses: actions/upload-artifact@v2
