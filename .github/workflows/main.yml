@@ -43,4 +43,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: output-log-file
-          path: output.log
+          path: build/output.log
