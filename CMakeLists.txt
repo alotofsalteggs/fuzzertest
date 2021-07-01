@@ -12,3 +12,7 @@ target_link_libraries(fuzzer_target PRIVATE -fsanitize=fuzzer -fsanitize=address
 add_executable(fuzzer_target_cov ./fuzz_target.c fun.c)
 target_compile_options(fuzzer_target_cov PRIVATE -fsanitize=fuzzer -fprofile-instr-generate -fcoverage-mapping -O0 -ggdb)
 target_link_libraries(fuzzer_target_cov PRIVATE -fsanitize=fuzzer,address -fprofile-instr-generate -fcoverage-mapping -O0 -ggdb)
+
+#    ./fuzzer_target ../corpus/*
+#    llvm-profdata merge -sparse *.profraw -o default.profdata && llvm-cov show ./fuzzer_target_cov -instr-profile=default.profdata -name=LLVMFuzzerTestOneInput
+#    llvm-cov report ./fuzzer_target_cov -instr-profile=default.profdata
