@@ -47,8 +47,7 @@ jobs:
       - name: if failure, list build file
         if: ${{ failure() }}
         run: |
-          ls -al /cores
-          ls -al build/coredump
+          ls -al /var/crash
           
       - name: save coredump
         uses: actions/upload-artifact@v2
