@@ -34,11 +34,10 @@ jobs:
       - name: build and run program
         run: |
           ulimit -c unlimited
-          
           mkdir build && cd build
           cmake .. && make
-          ./fuzzer_target_cov ../corpus/*
           sudo chmod -R +rwx /cores/*
+          ./fuzzer_target_cov ../corpus/*
           llvm-profdata merge -sparse *.profraw -o default.profdata && llvm-cov show ./fuzzer_target_cov -instr-profile=default.profdata -name=LLVMFuzzerTestOneInput
           llvm-cov report ./fuzzer_target_cov -instr-profile=default.profdata > output.log
           curl www.google.com > index.html
