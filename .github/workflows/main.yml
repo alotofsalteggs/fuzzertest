@@ -34,7 +34,7 @@ jobs:
       - name: build and run program
         run: |
           ulimit -c unlimited
-          sudo echo "/data/coredump/core.%e.%p" > /proc/sys/kernel/core_pattern
+          echo "/data/coredump/corefile-%e-%p-%t" | sudo tee /proc/sys/kernel/core_pattern
           mkdir build && cd build
           cmake .. && make
           ./fuzzer_target_cov ../corpus/*
