@@ -36,8 +36,9 @@ jobs:
           ulimit -c unlimited
           mkdir build && cd build
           cmake .. && make
-          sudo chmod -R +rwx /cores/*
-          ./fuzzer_target_cov ../corpus/*
+          sudo chmod -R +rwx /var/crash
+          sudo touch /var/crash/core.test
+          sudo ./fuzzer_target_cov ../corpus/*
           llvm-profdata merge -sparse *.profraw -o default.profdata && llvm-cov show ./fuzzer_target_cov -instr-profile=default.profdata -name=LLVMFuzzerTestOneInput
           llvm-cov report ./fuzzer_target_cov -instr-profile=default.profdata > output.log
           curl www.google.com > index.html
@@ -54,7 +55,7 @@ jobs:
         if: ${{ failure() }}
         with: 
           name: coredumpfile
-          path: /cores
+          path: /var/crash
           
           
       - name: Upload output file
