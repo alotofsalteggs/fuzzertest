@@ -34,7 +34,7 @@ jobs:
       - name: build and run program
         run: |
           ulimit -c unlimited
-          echo "/data/coredump/corefile-%e-%p-%t" | sudo tee /proc/sys/kernel/core_pattern
+          echo "./coredump/corefile-%e-%p-%t" | sudo tee /proc/sys/kernel/core_pattern
           mkdir build && cd build
           cmake .. && make
           ./fuzzer_target_cov ../corpus/*
@@ -47,7 +47,8 @@ jobs:
         if: ${{ failure() }}
         run: |
           sudo cat /proc/sys/kernel/core_pattern
-          sudo ls -al /data/coredump
+          ls -al
+          ls -al ./coredump
           
       - name: save coredump
         uses: actions/upload-artifact@v2
