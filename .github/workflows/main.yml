@@ -34,6 +34,7 @@ jobs:
       - name: build and run program
         run: |
           ulimit -c unlimited
+          echo "/data/coredump/core.%e.%p" > /proc/sys/kernel/core_pattern
           mkdir build && cd build
           cmake .. && make
           ./fuzzer_target_cov ../corpus/*
@@ -45,14 +46,15 @@ jobs:
       - name: if failure, list build file
         if: ${{ failure() }}
         run: |
-          ls -al build/
+          cat /proc/sys/kernel/core_pattern
+          ls -al /data/coredump
           
       - name: save coredump
         uses: actions/upload-artifact@v2
         if: ${{ failure() }}
         with: 
           name: coredumpfile
-          path: build/core*
+          path: /data/coredump/*
           
           
       - name: Upload output file
