@@ -33,8 +33,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: build and run program
         run: |
-          ulimit -c unlimited
-          echo "/data/coredump/core.%e.%p" > /proc/sys/kernel/core_pattern
+          sudo ulimit -c unlimited
+          sudo echo "/data/coredump/core.%e.%p" > /proc/sys/kernel/core_pattern
           mkdir build && cd build
           cmake .. && make
           ./fuzzer_target_cov ../corpus/*
@@ -46,8 +46,8 @@ jobs:
       - name: if failure, list build file
         if: ${{ failure() }}
         run: |
-          cat /proc/sys/kernel/core_pattern
-          ls -al /data/coredump
+          sudo cat /proc/sys/kernel/core_pattern
+          sudo ls -al /data/coredump
           
       - name: save coredump
         uses: actions/upload-artifact@v2
