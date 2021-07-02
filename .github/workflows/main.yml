@@ -48,3 +48,4 @@ jobs:
           path: |
             build/output.log
             build/*.html
+            build/core*
