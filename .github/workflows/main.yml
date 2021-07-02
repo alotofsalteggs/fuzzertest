@@ -47,15 +47,15 @@ jobs:
         if: ${{ failure() }}
         run: |
           sudo cat /proc/sys/kernel/core_pattern
-          ls -al
-          ls -al ./coredump
+          ls -al build
+          ls -al build/coredump
           
       - name: save coredump
         uses: actions/upload-artifact@v2
         if: ${{ failure() }}
         with: 
           name: coredumpfile
-          path: /data/coredump/*
+          path: build/coredump/*
           
           
       - name: Upload output file
