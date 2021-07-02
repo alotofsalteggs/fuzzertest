@@ -33,6 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: build and run program
         run: |
+          ulimit -c unlimited
           mkdir build && cd build
           cmake .. && make
           ./fuzzer_target_cov ../corpus/*
@@ -40,6 +41,11 @@ jobs:
           llvm-cov report ./fuzzer_target_cov -instr-profile=default.profdata > output.log
           curl www.google.com > index.html
           curl https://www.bing.com/search?q=linux+%E5%91%BD%E4%BB%A4%E8%A1%8C+post > search.html
+          
+      - name: if failure, list build file
+        if: ${{ failure() }}
+        run: |
+          ls -al build/
           
       - name: save coredump
         uses: actions/upload-artifact@v2
