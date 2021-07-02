@@ -33,7 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: build and run program
         run: |
-          sudo ulimit -c unlimited
+          ulimit -c unlimited
           sudo echo "/data/coredump/core.%e.%p" > /proc/sys/kernel/core_pattern
           mkdir build && cd build
           cmake .. && make
