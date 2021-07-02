@@ -76,5 +76,5 @@ int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)
 //     printf("");
     DoSomeThingInterestingWithMyAPI(Data, Size);
     printf("##LLVMFuzzerTestOneInput complete\n\n");
-    return 0;
+    return 1;
 }
