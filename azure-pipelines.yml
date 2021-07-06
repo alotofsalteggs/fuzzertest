@@ -18,6 +18,8 @@ jobs:
       cmake .. && make
       ./fuzzer_target ../corus/*
       ls -al
+  - script: |
+      ls -al
 - job: B
   displayName: ls -al build
   steps: 
