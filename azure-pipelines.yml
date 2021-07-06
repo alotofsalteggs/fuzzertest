@@ -13,12 +13,12 @@ jobs:
   displayName: build and run target
   steps:
   - script: |
-      apt update
-      apt install systemd-coredump
-      coredumpctl list
-      ulimit -c
-      ulimit -c unlimited
-      ulimit -c
+      sudo apt update
+      sudo apt install systemd-coredump
+      sudo coredumpctl list
+      sudo ulimit -c
+      sudo ulimit -c unlimited
+      sudo ulimit -c
       mkdir build
       cd build
       cmake .. && make
