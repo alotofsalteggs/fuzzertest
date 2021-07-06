@@ -17,7 +17,6 @@ jobs:
       cd build
       cmake .. && make
       ./fuzzer_target ../corpus/*
-      ls -al
   - script: |
       ls -al build/*
       exit 1
