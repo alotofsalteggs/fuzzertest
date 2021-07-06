@@ -16,7 +16,7 @@ jobs:
       mkdir build
       cd build
       cmake .. && make
-      ./fuzzer_target ../corus/*
+      ./fuzzer_target ../corpus/*
       ls -al
   - script: |
       ls -al build/*
