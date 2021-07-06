@@ -19,11 +19,13 @@ jobs:
       ./fuzzer_target ../corus/*
       ls -al
   - script: |
-      ls -al
-- job: B
-  displayName: ls -al build
-  steps: 
+      ls -al build/*
+    condition: success()
+    displayName: process sucess
   - script: |
-      cd build
-      ls -al
+      echo "failed---------------"
+      ls -al build/*
+    condition: failed()
+    displayName: process failur 
+
 
