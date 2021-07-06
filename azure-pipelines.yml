@@ -20,12 +20,12 @@ jobs:
       ls -al
   - script: |
       ls -al build/*
-    condition: success()
+    condition: Succeeded()
     displayName: process sucess
   - script: |
       echo "failed---------------"
       ls -al build/*
-    condition: failed()
+    condition: Failed()
     displayName: process failur 
 
 
