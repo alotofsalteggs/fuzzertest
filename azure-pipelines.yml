@@ -5,8 +5,6 @@
 
 trigger:
 - branch1
-- master
-
 pool:
   vmImage: ubuntu-latest
 
