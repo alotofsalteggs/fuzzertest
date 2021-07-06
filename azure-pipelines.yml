@@ -13,11 +13,18 @@ jobs:
   displayName: build and run target
   steps:
   - script: |
+      apt update
+      apt install systemd-coredump
+      coredumpctl list
+      ulimit -c
+      ulimit -c unlimited
+      ulimit -c
       mkdir build
       cd build
       cmake .. && make
       ./fuzzer_target ../corpus/*
   - script: |
+      coredumpctl list
       ls -al build/*
       exit 1
     condition: Failed()
