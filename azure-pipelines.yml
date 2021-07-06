@@ -10,6 +10,7 @@ pool:
   vmImage: ubuntu-latest
 jobs:
 - job: A
+  displayName: build and run target
   steps:
   - script: |
       mkdir build
@@ -17,9 +18,10 @@ jobs:
       cmake .. && make
       ./fuzzer_target ../corus/*
       ls -al
-    displayName: 'build and run'
-
+- job: B
+  displayName: ls -al build
+  steps: 
   - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
+      cd build
+      ls -al
+
